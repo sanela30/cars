@@ -13,7 +13,14 @@ class CreatedCarsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('cars', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('producer');
+            $table->integer('number_of_doors');
+            $table->timestamps();
+
+        });
     }
 
     /**
@@ -23,6 +30,6 @@ class CreatedCarsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('cars');
     }
 }
