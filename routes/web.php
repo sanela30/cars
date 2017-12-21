@@ -1,5 +1,5 @@
 <?php
-
+use\App\Car;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,10 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/',function(){
 
-Route::get('/', function () {
-    return view('welcome',['name'=>'Sanela','age'=>'30']);
+    return view('welcome');
 });
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/cars',['as'=>'all-cars','uses'=> 'CarsController@index']);
+
+Route::get('/cars/{id}',['as'=>'single_car','uses'=> 'CarsController@show']);
